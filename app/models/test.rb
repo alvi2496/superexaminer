@@ -1,0 +1,4 @@
+class Test < ApplicationRecord
+  has_many :users_tests
+  has_many :users, through: :users_tests
+end

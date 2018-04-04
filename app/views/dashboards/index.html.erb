@@ -1,2 +1,9 @@
 <p>Welcome</p>
+<ul>
+  <% if current_user.teacher? %>
+    <li>
+      <%= link_to 'New Test', new_user_session_path %>
+    </li>
+  <% end %>
+</ul>
 <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
