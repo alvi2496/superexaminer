@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20180404095613) do
     t.integer "full_mark"
     t.date "date"
     t.time "start_time"
-    t.time "duration"
+    t.integer "duration"
     t.text "syllabus"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

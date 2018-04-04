@@ -7,7 +7,7 @@ class CreateTests < ActiveRecord::Migration[5.1]
       t.integer :full_mark
       t.date :date
       t.time :start_time
-      t.time :duration
+      t.integer :duration
       t.text :syllabus
       t.timestamps
     end

@@ -1,7 +1,3 @@
-class DashboardsController < ApplicationController
-  before_action :authenticate_user!
-
-  def index
-    
-  end
+class DashboardsController < BasesController
+  def index; end
 end

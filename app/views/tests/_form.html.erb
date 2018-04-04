@@ -1,0 +1,66 @@
+<%= form_for @test do |f| %>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :test_name %>
+        </td>
+        <td>
+          <%= f.text_field :test_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :course_code %>
+        </td>
+        <td>
+          <%= f.text_field :course_code %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :course_name %>
+        </td>
+        <td>
+          <%= f.text_field :course_name %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :full_mark %>
+        </td>
+        <td>
+          <%= f.text_field :full_mark %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :date %>
+        </td>
+        <td>
+          <%= f.date_field :date %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :start_time %>
+        </td>
+        <td>
+          <%= f.time_field :start_time %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :duration %>
+        </td>
+        <td>
+          <%= f.text_field :duration %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%= f.submit 'Submit' %>
+        </td>
+      </tr>
+    </table>
+<% end %>
