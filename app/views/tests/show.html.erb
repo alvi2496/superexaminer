@@ -1,0 +1,36 @@
+<table>
+  <tbody>
+    <tr>
+      <td>Test Name</td>
+      <td><%= @test.test_name %></td>
+    <tr>
+    <tr>
+      <td>Course Code</td>
+      <td><%= @test.course_code %></td>
+    </tr>
+    <tr>
+      <td>Course Name</td>
+      <td><%= @test.course_name %></td>
+    </tr>
+    <tr>
+      <td>Full Marks</td>
+      <td><%= @test.full_mark %></td>
+    </tr>
+    <tr>
+      <td>Date</td>
+      <td><%= @test.date %></td>
+    </tr>
+    <tr>
+      <td>Start Time</td>
+      <td><%= @test.start_time.present? ? @test.start_time.strftime('%H-%M-%S') : 'N/A' %></td>
+    </tr>
+    <tr>
+      <td>Duration</td>
+      <td><%= @test.duration %></td>
+    </tr>
+    <tr>
+      <td>Syllabus</td>
+      <td><%= @test.syllabus %></td>
+    </tr>
+  </tbody>
+</table>

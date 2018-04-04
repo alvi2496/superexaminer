@@ -1,10 +1,10 @@
 class TestsController < BasesController
   def index
-    @tests = current_user.tests
+    @tests = current_user.tests.includes(:users)
   end
 
   def show
-
+    @test = Test.find(params[:id])
   end
 
   def new
@@ -22,15 +22,27 @@ class TestsController < BasesController
   end
 
   def edit
-
+    @test = Test.find(params[:id])
   end
 
   def update
-
+    @test = Test.find(params[:id])
+    if @test.update(test_params)
+      flash[:notice] = 'Test updated'
+    else
+      flash[:alert] = 'Error updating test'
+    end
+    redirect_to dashboards_path
   end
 
   def destroy
-
+    @test = Test.find(params[:id])
+    if @test.destroy
+      flash[:notice] = 'Test deleted'
+    else
+      flash[:alert] = 'Error deleting test'
+    end
+    redirect_to dashboards_path
   end
 
   private
