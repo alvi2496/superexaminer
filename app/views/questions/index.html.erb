@@ -1,0 +1,24 @@
+<% if @questions.empty? %>
+    <p>You dont have any tests yet</p>
+<% else %>
+    <table>
+      <th>
+        <tr>
+          <td>Number</td>
+          <td>Title</td>
+          <td>Marks</td>
+        </tr>
+      </th>
+      <tbody>
+      <% @questions.each do |question| %>
+          <tr>
+            <td><%= question.number %></td>
+            <td><%= question.title %></td>
+            <td><%= question.mark %></td>
+            <td>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>

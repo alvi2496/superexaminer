@@ -1,0 +1,34 @@
+<%= form_for @question do |f| %>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :number %>
+        </td>
+        <td>
+          <%= f.text_field :number %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :title %>
+        </td>
+        <td>
+          <%= f.text_area :title %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :mark %>
+        </td>
+        <td>
+          <%= f.text_field :mark %>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <%= f.submit 'Submit' %>
+        </td>
+      </tr>
+    </table>
+<% end %>

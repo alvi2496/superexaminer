@@ -1,11 +1,12 @@
 class TestsController < BasesController
+
+  before_action :set_test, only: [:show, :edit, :update, :delete]
+
   def index
     @tests = Test.all.includes(:users)
   end
 
-  def show
-    @test = Test.find(params[:id])
-  end
+  def show; end
 
   def new
     @test = current_user.tests.build
@@ -21,12 +22,9 @@ class TestsController < BasesController
     redirect_to dashboards_path
   end
 
-  def edit
-    @test = Test.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @test = Test.find(params[:id])
     if @test.update(test_params)
       flash[:notice] = 'Test updated'
     else
@@ -36,7 +34,6 @@ class TestsController < BasesController
   end
 
   def destroy
-    @test = Test.find(params[:id])
     if @test.destroy
       flash[:notice] = 'Test deleted'
     else
@@ -50,5 +47,9 @@ class TestsController < BasesController
   def test_params
     params.require(:test).permit(:test_name, :course_code, :course_name, :full_mark,
                                  :date, :start_time, :duration, :syllabus)
+  end
+
+  def set_test
+    @test = Test.find(params[:id])
   end
 end

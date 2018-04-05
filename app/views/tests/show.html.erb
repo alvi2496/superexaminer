@@ -42,6 +42,13 @@
           <% end %>
         </td>
       </tr>
+    <% elsif current_user.teacher? && (current_user.tests.include?(@test)) %>
+      <tr>
+        <td></td>
+        <td>
+          <%= link_to 'Questions', new_question_path(test_id: @test.id)%>
+        </td>
+      </tr>
     <% end %>
   </tbody>
 </table>
