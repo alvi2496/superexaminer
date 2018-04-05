@@ -1,4 +1,5 @@
 <%= form_for @question do |f| %>
+    <%= hidden_field_tag(:test_id, @test.id) %>
     <table>
       <tr>
         <td>

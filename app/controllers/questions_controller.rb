@@ -7,23 +7,25 @@ class QuestionsController < BasesController
   end
 
   def new
-    @question = @test.questions.new
+    @question = @test.questions.build
   end
 
   def create
-    @question = @test.questions.new(question_params)
+    @question = @test.questions.build(question_params)
     if @question.save
       flash[:notice] = 'Question Saved'
+      redirect_to questions_path(test_id: @test.id)
     else
       flash[:alert] = 'Question not saved'
+      render :new
     end
-    redirect_to questions_path(test_id: @test.id)
+
   end
 
   private
 
   def question_params
-    params.permit(:number, :title, :mark)
+    params.require(:question).permit(:number, :title, :mark)
   end
 
   def set_test

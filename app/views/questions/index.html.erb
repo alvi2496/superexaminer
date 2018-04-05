@@ -1,5 +1,5 @@
 <% if @questions.empty? %>
-    <p>You dont have any tests yet</p>
+    <p>This test does not contain any questions</p>
 <% else %>
     <table>
       <th>
@@ -21,4 +21,7 @@
       <% end %>
       </tbody>
     </table>
+<% end %>
+<% if current_user.teacher? && (current_user.tests.include?(@test)) %>
+    <%= link_to 'Add Questions', new_question_path(test_id: @test.id) %>
 <% end %>
