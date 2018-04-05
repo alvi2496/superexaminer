@@ -1,6 +1,6 @@
 class TestsController < BasesController
   def index
-    @tests = current_user.tests.includes(:users)
+    @tests = Test.all.includes(:users)
   end
 
   def show

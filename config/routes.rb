@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   resources :dashboards
   resources :tests
+  resources :users_tests
 end

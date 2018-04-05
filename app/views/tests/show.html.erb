@@ -32,5 +32,16 @@
       <td>Syllabus</td>
       <td><%= @test.syllabus %></td>
     </tr>
+    <% if current_user.student? && !(current_user.tests.include?(@test)) %>
+      <tr>
+        <td></td>
+        <td>
+          <%= form_tag(controller: 'users_tests', action: 'create', method: 'post') do %>
+            <%= hidden_field_tag(:test_id, @test.id) %>
+            <%= submit_tag('Register') %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>
