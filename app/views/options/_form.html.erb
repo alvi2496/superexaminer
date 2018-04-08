@@ -4,17 +4,19 @@
       <%= @question.title %>
     </th>
   </tr>
-  <tr>
-    <td>
-      <ul>
-        <% @options.each do |option| %>
-          <li>
-            <%= "#{option.number}. #{option.title}" %>
-          </li>
-        <% end %>
-      </ul>
-    </td>
-  </tr>
+  <% @options.each do |option| %>
+    <% if option.id %>
+      <tr>
+        <td>
+          <%= "#{option.number}. #{option.title}" %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_option_path(option, question_id: @question.id) %>
+          <%= link_to 'Delete', option_path(option, question_id: @question.id), data: { method: :delete } %>
+        </td>
+      </tr>
+    <% end %>
+  <% end %>
   <tr>
     <th>
       Add options
