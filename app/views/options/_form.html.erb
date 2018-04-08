@@ -1,10 +1,28 @@
-<p>
-  <%= @question.title %>
-</p>
-<%= form_for @option do |f| %>
-    <%= hidden_field_tag(:question_id, @question.id) %>
-    <table>
-      <tr>
+<table>
+  <tr>
+    <th>
+      <%= @question.title %>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <ul>
+        <% @options.each do |option| %>
+          <li>
+            <%= "#{option.number}. #{option.title}" %>
+          </li>
+        <% end %>
+      </ul>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      Add options
+    </th>
+  </tr>
+  <tr>
+    <%= form_for @option do |f| %>
+      <%= hidden_field_tag(:question_id, @question.id) %>
         <td>
           <%= f.label :number %>
           <%= f.text_field :number %>
@@ -17,7 +35,9 @@
           <%= f.label :is_answer %>
           <%= f.check_box :is_answer %>
         </td>
-      </tr>
-    </table>
-    <%= f.submit 'Submit' %>
-<% end %>
+        <td>
+          <%= f.submit 'Add' %>
+        </td>
+    <% end %>
+  </tr>
+</table>

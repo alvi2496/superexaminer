@@ -6,13 +6,14 @@ class OptionsController < BasesController
   end
 
   def new
+    @options = @question.options
     @option = @question.options.build()
   end
 
   def create
     @option = @question.options.build(option_params)
     if @option.save
-      redirect_to questions_path(test_id: @question.test.id)
+      redirect_to new_option_path(question_id: @question.test.id)
     else
       render :new
     end
