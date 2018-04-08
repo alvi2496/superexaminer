@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :tests
   resources :users_tests
   resources :questions
+  resources :options
 end

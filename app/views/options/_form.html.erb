@@ -1,0 +1,23 @@
+<p>
+  <%= @question.title %>
+</p>
+<%= form_for @option do |f| %>
+    <%= hidden_field_tag(:question_id, @question.id) %>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :number %>
+          <%= f.text_field :number %>
+        </td>
+        <td>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+        </td>
+        <td>
+          <%= f.label :is_answer %>
+          <%= f.check_box :is_answer %>
+        </td>
+      </tr>
+    </table>
+    <%= f.submit 'Submit' %>
+<% end %>
