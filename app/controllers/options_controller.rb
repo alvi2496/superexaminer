@@ -1,8 +1,8 @@
 class OptionsController < BasesController
   before_action :set_question
+  before_action :set_option, only: [:edit, :update, :destroy]
 
   def new
-    @options = @question.options
     @option = @question.options.build()
   end
 
@@ -15,28 +15,22 @@ class OptionsController < BasesController
     end
   end
 
-  def edit
-    @options = @question.options
-    @option = @options.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @option = Option.find(params[:id])
-    if @option.save
+    if @option.update(option_params)
       redirect_to new_option_path(question_id: @question.id)
     else
-      render :new
+      redirect_to edit_option_path(option, question_id: @question.id)
     end
   end
 
   def destroy
-    @option = Option.find(params[:id])
     if @option.destroy
-      flash[:notice] = 'Option deleted'
+      redirect_to new_option_path(question_id: @question.id)
     else
-      flash[:alert] = 'Option not Deleted'
+      redirect_to new_option_path(question_id: @question.id)
     end
-    redirect_to new_option_path(question_id: @question.id)
   end
 
   private
@@ -47,5 +41,10 @@ class OptionsController < BasesController
 
   def set_question
     @question = Question.find(params[:question_id])
+    @options = @question.options
+  end
+
+  def set_option
+    @option = @question.options.find(params[:id])
   end
 end

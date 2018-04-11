@@ -5,13 +5,14 @@
     </th>
   </tr>
   <% @options.each do |option| %>
-    <% if option.id %>
+    <% if option.persisted? %>
       <tr>
         <td>
           <%= "#{option.number}. #{option.title}" %>
         </td>
         <td>
           <%= link_to 'Edit', edit_option_path(option, question_id: @question.id) %>
+          |
           <%= link_to 'Delete', option_path(option, question_id: @question.id), data: { method: :delete } %>
         </td>
       </tr>
@@ -38,7 +39,7 @@
           <%= f.check_box :is_answer %>
         </td>
         <td>
-          <%= f.submit 'Add' %>
+          <%= f.submit 'Save' %>
         </td>
     <% end %>
   </tr>
