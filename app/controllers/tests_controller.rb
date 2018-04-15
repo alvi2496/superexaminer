@@ -3,7 +3,12 @@ class TestsController < BasesController
   before_action :set_test, only: [:show, :edit, :update, :delete]
 
   def index
-    @tests = Test.all.includes(:users)
+    if current_user.student?
+      @all_tests = Test.all
+      @user_tests = current_user.tests
+    elsif current_user.teacher?
+      @tests = current_user.tests
+    end
   end
 
   def show; end

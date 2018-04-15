@@ -1,0 +1,30 @@
+<% if @user_tests.empty? %>
+    <p>You dont have any registered tests yet</p>
+<% else %>
+    <table>
+      <th>
+        <tr>
+          <td>Test Name</td>
+          <td>Course Code</td>
+          <td>Course Name</td>
+          <td>Full Marks</td>
+          <td>Date</td>
+          <td>Start Time</td>
+          <td>Duration</td>
+        </tr>
+      </th>
+      <tbody>
+      <% @user_tests.each do |test| %>
+        <tr>
+          <td><%= test.test_name %></td>
+          <td><%= test.course_code %></td>
+          <td><%= test.course_name %></td>
+          <td><%= test.full_mark %></td>
+          <td><%= test.date %></td>
+          <td><%= test.start_time.present? ? test.start_time.strftime('%H-%M-%S') : 'N/A' %></td>
+          <td><%= test.duration %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+<% end %>
