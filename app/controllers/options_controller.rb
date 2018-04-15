@@ -21,7 +21,7 @@ class OptionsController < BasesController
     if @option.update(option_params)
       redirect_to new_option_path(question_id: @question.id)
     else
-      redirect_to edit_option_path(option, question_id: @question.id)
+      redirect_to edit_option_path(@option, question_id: @question.id)
     end
   end
 
