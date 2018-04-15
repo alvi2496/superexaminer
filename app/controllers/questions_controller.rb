@@ -17,7 +17,7 @@ class QuestionsController < BasesController
     @question = @test.questions.build(question_params)
     if @question.save
       flash[:notice] = 'Question Saved'
-      redirect_to questions_path(test_id: @test.id)
+      redirect_to new_option_path(question_id: @question.id)
     else
       flash[:alert] = 'Question not saved'
       render :new

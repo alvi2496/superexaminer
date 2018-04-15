@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405114057) do
+ActiveRecord::Schema.define(version: 20180408095616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "options", force: :cascade do |t|
+    t.bigint "question_id"
+    t.integer "number"
+    t.string "title"
+    t.boolean "is_answer", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_options_on_question_id"
+  end
 
   create_table "questions", force: :cascade do |t|
     t.bigint "test_id"

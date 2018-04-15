@@ -16,7 +16,7 @@
             <td><%= question.title %></td>
             <td><%= question.mark %></td>
             <td>
-              <%= link_to 'Show', question_path(question) %>
+              <%= link_to 'Add Options', new_option_path(question_id: question.id) %>
               <%= link_to 'Edit', edit_question_path(question) %>
               <%= link_to 'Delete', question_path(question), data: { method: :delete } %>
             </td>
