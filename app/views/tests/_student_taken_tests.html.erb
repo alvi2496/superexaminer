@@ -1,5 +1,5 @@
-<% if @all_tests.empty? %>
-    <p>There are no tests yet</p>
+<% if user_tests.empty? %>
+    <p>You have not taken any tests yet</p>
 <% else %>
     <table>
       <th>
@@ -14,10 +14,8 @@
         </tr>
       </th>
       <tbody>
-      <% @all_tests.each do |test| %>
-        <tr>
-          <%= form_tag '/users_tests' do %>
-            <%= hidden_field_tag(:test_id, test.id) %>
+      <% user_tests.each do |test| %>
+          <tr>
             <td><%= test.test_name %></td>
             <td><%= test.course_code %></td>
             <td><%= test.course_name %></td>
@@ -25,9 +23,10 @@
             <td><%= test.date %></td>
             <td><%= test.start_time.present? ? test.start_time.strftime('%H-%M-%S') : 'N/A' %></td>
             <td><%= test.duration %></td>
-            <td><%= submit_tag 'Register' %></td>
-          <% end %>
-        </tr>
+            <td>
+              <%= link_to 'Take Test', new_answer_path(test_id: test.id) %>
+            </td>
+          </tr>
       <% end %>
       </tbody>
     </table>

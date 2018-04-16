@@ -1,4 +1,4 @@
-<% if @user_tests.empty? %>
+<% if user_tests.empty? %>
     <p>You dont have any registered tests yet</p>
 <% else %>
     <table>
@@ -14,7 +14,7 @@
         </tr>
       </th>
       <tbody>
-      <% @user_tests.each do |test| %>
+      <% user_tests.each do |test| %>
         <tr>
           <td><%= test.test_name %></td>
           <td><%= test.course_code %></td>

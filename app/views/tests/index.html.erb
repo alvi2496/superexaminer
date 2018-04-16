@@ -1,6 +1,8 @@
 <% if current_user.student? %>
   <h4>Registered Tests</h4>
-  <%= render partial: 'student_registered_tests', locals: { user_tests: @user_tests } %>
+  <%= render partial: 'student_taken_tests', locals: { user_tests: @taken_user_tests } %>
+  <h4>Registered Tests</h4>
+  <%= render partial: 'student_registered_tests', locals: { user_tests: @registered_user_tests } %>
   <h4>All Tests</h4>
   <%= render partial: 'students_all_test', locals: { all_tests: @all_tests } %>
 <% elsif current_user.teacher? %>

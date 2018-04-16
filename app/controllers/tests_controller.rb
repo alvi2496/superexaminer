@@ -5,7 +5,8 @@ class TestsController < BasesController
   def index
     if current_user.student?
       @all_tests = Test.all
-      @user_tests = current_user.tests
+      @registered_user_tests = current_user.tests.where('is_taken = false')
+      @taken_user_tests = current_user.tests.where('is_taken = true')
     elsif current_user.teacher?
       @tests = current_user.tests
     end
