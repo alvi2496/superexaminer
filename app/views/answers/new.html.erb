@@ -1,0 +1,12 @@
+<%= form_tag '/answers' do %>
+  <%= hidden_field_tag(:test_id, @test.id) %>
+  <% @questions.each do |question| %>
+    <%= label_tag "label_of_question[#{question.id}]", "#{question.number}. #{question.title}" %><br>
+    <% question.options.each do |option| %>
+        <%= radio_button_tag("answers_of_question[#{question.id}]", option.id) %>
+        <%= label_tag("option_label_of_question[#{question.id}]", option.title) %><br>
+    <% end %>
+    <br>
+  <% end %>
+  <%= submit_tag 'Submit' %>
+<% end %>

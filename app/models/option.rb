@@ -4,6 +4,8 @@ class Option < ApplicationRecord
   validates :number, uniqueness: true,
             if: :option_number_already_present?
 
+  scope :answers, -> { where(is_answer: true) }
+
   private
 
   def option_number_already_present?

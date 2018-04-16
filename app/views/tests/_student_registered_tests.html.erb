@@ -23,6 +23,9 @@
           <td><%= test.date %></td>
           <td><%= test.start_time.present? ? test.start_time.strftime('%H-%M-%S') : 'N/A' %></td>
           <td><%= test.duration %></td>
+          <td>
+            <%= link_to 'Take Test', new_answer_path(test_id: test.id) %>
+          </td>
         </tr>
       <% end %>
       </tbody>
