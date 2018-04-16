@@ -1,12 +1,21 @@
 class AnswersController < BasesController
+  before_action :find_test
 
   def index; end
 
   def new
-
+    @questions = @test.questions.order(number: :asc)
   end
 
   def create
+    question_ids = @test.questions.order(number: :asc).pluck(:id)
+    Answer.save_answers(current_user.id, question_ids, params[:answers_of_question])
+    redirect_to tests_path
+  end
 
+  private
+
+  def find_test
+    @test = Test.find(params[:test_id])
   end
 end
