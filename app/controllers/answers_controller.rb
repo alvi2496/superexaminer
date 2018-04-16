@@ -22,7 +22,7 @@ class AnswersController < BasesController
   end
 
   def test_is_taken_by_student
-    users_test = UsersTest.users_test(current_user.id, @test.id)
+    users_test = current_user.users_tests.find_by(test_id: @test.id)
     users_test.is_taken = true
     users_test.save!
   end
