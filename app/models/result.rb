@@ -10,13 +10,12 @@ class Result < ApplicationRecord
         if given_answers[i][1].nil?
           result = user.results.new(question_id: question_ids[i], correct_option_id: answers[i][1],
                                     given_option_id: given_answers[i][1], correctness: 0, gained_mark: 0)
-          result.save
         elsif answers[i][0] == given_answers[i][0] && answers[i][1] == given_answers[i][1]
           result = user.results.new(question_id: question_ids[i], correct_option_id: answers[i][1],
                                     given_option_id: given_answers[i][1], correctness: 1, gained_mark: 1)
-          result.save
         end
       end
+      result.save
     end
   end
 end
