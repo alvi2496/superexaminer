@@ -2,6 +2,7 @@ class Question < ApplicationRecord
   belongs_to :test
   has_many :options, dependent: :destroy
   has_many :answers, dependent: :destroy
+  has_many :results, dependent: :destroy
 
   validates :number, uniqueness: true,
                      if: :question_number_already_present?
