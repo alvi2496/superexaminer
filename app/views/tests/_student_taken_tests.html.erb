@@ -24,7 +24,7 @@
             <td><%= test.start_time.present? ? test.start_time.strftime('%H-%M-%S') : 'N/A' %></td>
             <td><%= test.duration %></td>
             <td>
-              <%= link_to 'Show Result', '' %>
+              <%= link_to 'Show Result', results_path(test_id: test.id) %>
             </td>
           </tr>
       <% end %>

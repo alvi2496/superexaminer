@@ -1,0 +1,14 @@
+<table>
+  <% @questions.each do |question| %>
+    <tr>
+      <th>
+        <%= question.title %>
+      </th>
+    </tr>
+    <tr>
+      <td>
+        <%= question.results.first.correctness %>
+      </td>
+    </tr>
+  <% end %>
+</table>
