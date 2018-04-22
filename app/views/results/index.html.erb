@@ -1,14 +1,25 @@
-<table>
-  <% @questions.each do |question| %>
-    <tr>
-      <th>
-        <%= question.title %>
-      </th>
-    </tr>
-    <tr>
-      <td>
-        <%= question.results.first.correctness %>
-      </td>
-    </tr>
-  <% end %>
-</table>
+<% @questions.each do |question| %>
+    <table>
+      <thead>
+        <tr>
+          <th>
+            <%= question.title %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Correct Answer</th>
+          <th>Given Answer</th>
+          <th>Correctness</th>
+          <th>Gained Marks</th>
+        </tr>
+        <tr>
+          <td><%= question.answer.present? ? question.answer.title : 'N/A' %></td>
+          <td><%= question.given_answer.present? ? question.given_answer.title : 'Not Answered' %></td>
+          <td><%= question.results.first.correctness %></td>
+          <td><%= question.results.first.gained_mark %></td>
+        </tr>
+      </tbody>
+    </table>
+<% end %>
